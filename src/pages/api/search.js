@@ -6,7 +6,7 @@ export default function handler(req, res) {
   const { mobileNo } = req.query;
   if (!mobileNo) return res.status(400).json({ error: "Missing mobileNo parameter" });
 
-  const filePath = path.join(process.cwd(), 'public', 'data.csv');
+  const filePath = path.join(process.cwd(), 'data', 'database.csv');
 
   if (!fs.existsSync(filePath)) {
     console.error(`❌ CSV file NOT found at: ${filePath}`);
