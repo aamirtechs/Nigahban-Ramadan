@@ -83,7 +83,7 @@ export default function Home() {
               label="Enter Mobile Number"
               value={mobileNo}
               onChange={(e) => setMobileNo(e.target.value)}
-              placeholder="3015441743"
+              placeholder="3012345678"
             />
             <Button text="Search" onClick={handleSearch} isLoading={loading} />
 
