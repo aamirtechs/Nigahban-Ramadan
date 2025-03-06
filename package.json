@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@shadcn/ui": "^0.0.4",
     "bootstrap": "^5.3.3",
     "csv-parser": "^3.2.0",
-    "fast-csv": "^5.0.2",
     "lucide-react": "^0.477.0",
     "next": "15.2.1",
-    "papaparse": "^5.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
