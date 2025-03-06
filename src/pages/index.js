@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchTable from "../components/SearchTable";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
@@ -10,22 +10,6 @@ export default function Home() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-
-  // Stats state
-  const [totalSearches, setTotalSearches] = useState(0);
-  const [totalEntries, setTotalEntries] = useState(0);
-  const [liveVisitors, setLiveVisitors] = useState(100);
-
-  useEffect(() => {
-    // Fetch initial stats on page load
-    fetch("/api/stats")
-      .then((res) => res.json())
-      .then((stats) => {
-        setTotalSearches(stats.totalSearches);
-        setTotalEntries(stats.totalEntries);
-        setLiveVisitors(stats.liveVisitors);
-      });
-  }, []);
 
   // Function to validate and format the mobile number
   const formatMobileNumber = (number) => {
@@ -53,13 +37,6 @@ export default function Home() {
 	  try {
 		const response = await fetch(`/api/search?mobileNo=${formattedNumber}`);
 		const result = await response.json();
-
-		// Always increment search count, even if not found
-		fetch("/api/stats", { method: "POST" })
-		  .then((res) => res.json())
-		  .then((stats) => {
-			setTotalSearches(stats.totalSearches);
-		  });
 
 		if (response.ok && result.Name) {
 		  setData(result);
@@ -128,13 +105,8 @@ export default function Home() {
       </div>
 
 	  {/* Footer */}
-      <footer className="position-absolute bottom-0 w-100 py-3 text-light bg-dark text-center">
+      <footer className="position-absolute bottom-0 w-100 py-3 text-light text-center">
         <div className="container d-flex justify-content-between">
-          <div>
-            <span className="fw-bold">Searches:</span> {totalSearches} | 
-            <span className="fw-bold"> Entries:</span> {totalEntries} | 
-            <span className="fw-bold"> Live Visitors:</span> {liveVisitors}
-          </div>
           <div>
             © {new Date().getFullYear()} Govt of Punjab - Tehsil Shujabad, District Multan
           </div>
