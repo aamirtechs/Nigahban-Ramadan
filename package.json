@@ -1,13 +1,5 @@
 {
-  "name": "csv-search-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "author": "Amir Hussain",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "csv-parser": "^3.2.0",
@@ -16,9 +8,21 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
+  "description": "CNIC eligibility checker for the Punjab Nigahban Ramadan Package. Unofficial community tool with sample data only.",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.10"
-  }
+    "tailwindcss": "^4.0.10",
+    "@tailwindcss/postcss": "^4.0.10"
+  },
+  "license": "MIT",
+  "name": "nigahban-ramadan",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "version": "2.0.0"
 }
